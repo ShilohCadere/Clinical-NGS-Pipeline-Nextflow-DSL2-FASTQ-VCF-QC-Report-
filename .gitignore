@@ -1,0 +1,10 @@
+# Nextflow
+work/
+.nextflow/
+.nextflow.log
+
+# OS
+.DS_Store
+
+# temporary outputs
+results/
