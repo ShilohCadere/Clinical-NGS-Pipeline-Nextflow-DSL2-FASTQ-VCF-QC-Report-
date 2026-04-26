@@ -1,95 +1,121 @@
-# Clinical NGS Pipeline (Nextflow + Docker)
+# Clinical NGS Pipeline (Nextflow DSL2 + Docker)
 
-A reproducible, modular next-generation sequencing (NGS) pipeline built using Nextflow DSL2 and Docker, simulating a clinical-grade workflow for sequencing QC, alignment, variant calling, and reporting.
+**Shiloh Cadere**  
+Bioinformatics Analyst | Clinical NGS Pipelines | Python • R • SQL  
 
-This project demonstrates end-to-end bioinformatics pipeline design aligned with real-world clinical genomics environments, including QC validation, structured sample tracking, and automated reporting.
 
-## Pipeline Overview
+## Recruiter Summary (READ THIS FIRST)
+
+A production-style **Nextflow DSL2 bioinformatics pipeline** that processes paired-end NGS data from FASTQ to variant calls with automated QC, alignment, and reporting.
+
+Designed to simulate **clinical genomics workflows used in regulated sequencing environments**, emphasizing reproducibility, modular workflow design, and scalable bioinformatics processing.
+
+
+## What This Project Demonstrates
+
+This project reflects real-world bioinformatics engineering capability in:
+
+- Building modular **Nextflow DSL2 pipelines**
+- Designing reproducible workflows using **Docker**
+- Processing paired-end NGS sequencing data (FASTQ → VCF)
+- Implementing clinical-style QC → Alignment → Variant Calling workflows
+- Integrating multi-tool bioinformatics pipelines
+- Producing aggregated QC reports using **MultiQC**
+
+
+## Pipeline Architecture
+
 ```
-FASTQ → QC (FastQC) → Alignment (BWA-MEM)
-→ Sorting & Indexing (samtools)
-→ Variant Calling (bcftools)
-→ QC Classification → MultiQC Report
+FASTQ INPUTS
+     │
+     ▼
+FastQC (Read Quality Control)
+     │
+     ▼
+BWA-MEM (Read Alignment)
+     │
+     ▼
+samtools (Sorting + Indexing BAM)
+     │
+     ▼
+bcftools (Variant Calling)
+     │
+     ▼
+QC Classification
+     │
+     ▼
+MultiQC (Aggregated Reporting)
 ```
- 
-## Features
+
+## Key Features
 - Modular Nextflow DSL2 pipeline architecture
-- Fully containerized execution using Docker
+- Fully containerized execution (Docker)
 - Paired-end FASTQ processing
 - Automated QC generation and aggregation
 - Variant calling using bcftools
-- Structured sample tracking via samplesheet input
-- Reproducible workflow suitable for clinical-style environments
+- Sample-sheet driven workflow inputs
+- Reproducible, production-style pipeline design
 
-## Input Requirements
-### Samplesheet format (CSV)
+## Inputs
+### Samplesheet (CSV)
 ```
 sample,fastq_1,fastq_2
 sample1,data/sample_1.fastq.gz,data/sample_2.fastq.gz
 ```
 
-### Reference genome
+### Reference Genome
 ```
 data/reference.fasta
 ```
 
-## Quick Start
+## Execution
 1. Build container
-```
-docker build -t ngs-pipeline:1.0 .
-```
+```docker build -t ngs-pipeline:1.0 .```
+
 2. Run pipeline
-```
-nextflow run main.nf \
+```nextflow run main.nf \
   -profile docker \
   --samplesheet data/samplesheet.csv \
   --ref data/reference.fasta
 ```
 
 ## Outputs
-
-All results are written to ```results/```:
-
-FastQC reports → ```results/fastqc/```  
-Aligned BAM files → ```results/bam/```  
-Variant calls (VCF) → ```results/vcf/```  
-QC classification outputs → ```results/qc/```  
-MultiQC summary report → ```results/multiqc/multiqc_report.html```  
+- FastQC reports (per-sample QC)
+- Sorted + indexed BAM files
+- VCF variant calls
+- QC classification summaries
+- MultiQC aggregated report
 
 ## Technologies Used
-- Nextflow (DSL2)
-- Docker
-- BWA-MEM
-- samtools
-- bcftools
-- FastQC
-- MultiQC
 
-##Design Intent
+Nextflow (DSL2) • Docker • BWA-MEM • samtools • bcftools • FastQC • MultiQC
 
-This pipeline was designed to reflect core components of clinical NGS workflows:
+## Design Intent
+
+This pipeline was designed to reflect core components of clinical NGS workflows, including:
 
 - Structured ingestion of sequencing data
-- Quality control at read and pipeline levels
 - Deterministic alignment and variant calling
-- Reproducible, containerized execution
-- Aggregated QC reporting for downstream interpretation
+- Quality control at both read and pipeline levels
+- Reproducible containerized execution
+- Aggregated QC reporting for downstream interpretation 
 
 ## Why This Project Matters
 
-This project demonstrates practical ability to:
+This project demonstrates the ability to design and implement **reproducible, production-style bioinformatics workflows** used in clinical and research genomics environments.
 
-- Design reproducible bioinformatics workflows
-- Build modular Nextflow DSL2 pipelines
-- Manage multi-step genomic data processing
-- Integrate QC and variant analysis tools
-- Structure clinical-style computational workflows
+It reflects real pipeline patterns used in:
 
-It reflects skills directly applicable to bioinformatics analyst roles in clinical genomics environments.
+- sequencing QC validation
+- variant discovery workflows
+- scalable genomic data processing systems
 
+## Portfolio Value Statement
 
-## Why This Project
+This project demonstrates end-to-end capability in building clinical-grade bioinformatics pipelines, bridging raw sequencing data to interpretable genomic outputs using modern workflow engineering practices.
 
-This project demonstrates the ability to design and implement a reproducible bioinformatics pipeline using modern workflow tooling.
+## Author
 
-It reflects real-world clinical genomics workflows, including QC validation, alignment, and variant analysis.
+### Shiloh Cadere
+### Bioinformatics Analyst specializing in clinical NGS pipelines and reproducible workflow systems
+### Python • R • SQL • Nextflow • Docker
