@@ -1,3 +1,0 @@
-Sample	0
-sample_1	(6.0, 2.0)
-sample_2	(6.0, 2.0)

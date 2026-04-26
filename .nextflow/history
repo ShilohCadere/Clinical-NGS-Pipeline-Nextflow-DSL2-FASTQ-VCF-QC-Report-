@@ -1,4 +1,0 @@
-2026-04-26 16:49:19	3.8s	sleepy_watson	ERR	d1abb4518d0580f7367c5c1328202a2e	4a82d8bc-3982-4cb0-8c4c-cfeac375e72b	nextflow run main.nf --reads 'data/*_{1,2}.fastq.gz' --ref data/reference.fasta
-2026-04-26 17:00:12	4.2s	stoic_elion	ERR	d451683a0bc39ee35dbb7af6bfd7c49b	cd657b6b-6cff-45b2-b3a8-2f3f291dd14f	nextflow run main.nf --reads 'data/*_{1,2}.fastq.gz' --ref data/reference.fasta
-2026-04-26 17:21:54	4.4s	insane_goldberg	ERR	d451683a0bc39ee35dbb7af6bfd7c49b	42112d0a-107f-4e7e-a7f2-f41b5cdf3f62	nextflow run main.nf --reads 'data/*_{1,2}.fastq.gz' --ref data/reference.fasta
-2026-04-26 17:41:09	5.8s	grave_khorana	ERR	d451683a0bc39ee35dbb7af6bfd7c49b	cbdfdb49-fb6b-4dcb-b33a-e97e807b6f1b	nextflow run main.nf --reads 'data/*_{1,2}.fastq.gz' --ref data/reference.fasta -with-docker 'ngs-pipeline:1.0'

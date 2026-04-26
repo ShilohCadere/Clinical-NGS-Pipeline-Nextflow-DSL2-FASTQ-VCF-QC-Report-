@@ -1,2 +1,0 @@
-@SQ	SN:chr1	LN:16
-@PG	ID:bwa	PN:bwa	VN:0.7.17-r1188	CL:bwa mem reference.fasta sample_1.fastq.gz sample_2.fastq.gz
