@@ -11,3 +11,12 @@ results/work/
 results/
 .nextflow*
 *.log
+results/
+.nextflow/
+
+*.bwt
+*.pac
+*.ann
+*.amb
+*.sa
+*.fai
