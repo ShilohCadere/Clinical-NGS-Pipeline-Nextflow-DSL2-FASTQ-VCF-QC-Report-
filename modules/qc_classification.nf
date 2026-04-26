@@ -1,18 +1,19 @@
 process QC_CLASSIFY {
 
-    tag "$sample_id"
+    tag "$sample"
 
     publishDir "${params.outdir}/qc", mode: 'copy'
 
     input:
-    tuple val(sample_id), path(vcf)
+    tuple val(sample), path(vcf)
 
     output:
-    tuple val(sample_id), path("${sample_id}_qc.txt")
+    tuple val(sample), path("${sample}_qc.txt")
 
     script:
     """
-    echo "QC for $sample_id" > ${sample_id}_qc.txt
-    wc -l $vcf >> ${sample_id}_qc.txt
+    echo "QC Report for sample: ${sample}" > ${sample}_qc.txt
+    echo "VCF file: ${vcf}" >> ${sample}_qc.txt
+    wc -l ${vcf} >> ${sample}_qc.txt
     """
 }

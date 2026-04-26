@@ -1,18 +1,18 @@
 process SORT_BAM {
 
-    tag "$sample_id"
+    tag "$sample"
 
     publishDir "${params.outdir}/bam", mode: 'copy'
 
     input:
-    tuple val(sample_id), path(sam)
+    tuple val(sample), path(sam)
 
     output:
-    tuple val(sample_id), path("${sample_id}.sorted.bam"), path("${sample_id}.sorted.bam.bai")
+    tuple val(sample), path("${sample}.sorted.bam"), path("${sample}.sorted.bam.bai")
 
     script:
     """
-    samtools view -Sb $sam | samtools sort -o ${sample_id}.sorted.bam
-    samtools index ${sample_id}.sorted.bam
+    samtools view -Sb ${sam} | samtools sort -o ${sample}.sorted.bam
+    samtools index ${sample}.sorted.bam
     """
 }

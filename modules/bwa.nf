@@ -1,17 +1,17 @@
 process BWA_ALIGN {
 
-    tag "$sample_id"
+    tag "$sample"
 
     input:
-    tuple val(sample_id), path(read1), path(read2)
+    tuple val(sample), path(fastq1), path(fastq2)
     path ref
 
     output:
-    tuple val(sample_id), path("${sample_id}.sam")
+    tuple val(sample), path("${sample}.sam")
 
     script:
     """
-    bwa index $ref 2>/dev/null || true
-    bwa mem $ref $read1 $read2 > ${sample_id}.sam
+    bwa index ${ref} 2>/dev/null || true
+    bwa mem ${ref} ${fastq1} ${fastq2} > ${sample}.sam
     """
 }
