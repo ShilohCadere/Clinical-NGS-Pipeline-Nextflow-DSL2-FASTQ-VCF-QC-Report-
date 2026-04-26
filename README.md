@@ -1,5 +1,3 @@
-# clinical-ngs-pipeline
-
 # Clinical NGS Pipeline (Nextflow + Docker)
 
 Reproducible end-to-end bioinformatics pipeline for processing paired-end sequencing data through QC, alignment, variant calling, and reporting.
